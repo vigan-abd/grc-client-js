@@ -67,3 +67,11 @@ export class GrcHttpClient extends GrcClientBase {
 export class GrcWsClient extends GrcClientBase {
   constructor (opts: GrcClientBaseOpts)
 }
+
+declare const _default: {
+  GrcClientBase: typeof GrcClientBase
+  GrcHttpClient: typeof GrcHttpClient
+  GrcWsClient: typeof GrcWsClient
+}
+
+export default _default
