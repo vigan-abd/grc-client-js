@@ -3,8 +3,8 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const createGrapes = require('bfx-svc-test-helper/grapes')
-const { GrcWsWrk } = require('@thrivecoin/grc-server')
+const createGrapes = require('@bitfinex/bfx-svc-test-helper/grapes')
+const { GrcWsWrk } = require('@vigan-abd/grc-server')
 const { GrcWsClient } = require('../')
 
 class SampleWrk extends GrcWsWrk {

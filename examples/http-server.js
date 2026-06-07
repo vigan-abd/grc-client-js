@@ -1,6 +1,6 @@
 'use strict'
 
-const { GrcHttpWrk } = require('@thrivecoin/grc-server')
+const { GrcHttpWrk } = require('@vigan-abd/grc-server')
 
 class SampleWrk extends GrcHttpWrk {
   ping (from, message) {

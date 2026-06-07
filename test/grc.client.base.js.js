@@ -3,11 +3,10 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const createGrapes = require('bfx-svc-test-helper/grapes')
-const mockdate = require('mockdate')
+const createGrapes = require('@bitfinex/bfx-svc-test-helper/grapes')
 const sinon = require('sinon')
 const utils = require('util')
-const { GrcHttpWrk } = require('@thrivecoin/grc-server')
+const { GrcHttpWrk } = require('@vigan-abd/grc-server')
 const { GrcHttpClient } = require('../')
 
 class SampleWrk extends GrcHttpWrk {
@@ -45,7 +44,8 @@ describe('grc.client.base.js tests', () => {
   ]
 
   let errLog = ''
-  const errLogStub = sinon.stub(console, 'error')
+  let errLogStub = null
+  let clock = null
 
   before(async function () {
     this.timeout(5000)
@@ -54,8 +54,8 @@ describe('grc.client.base.js tests', () => {
     client.start()
     await Promise.all(wrks.map(wrk => wrk.start()))
 
-    mockdate.set(1665843499038)
-    errLogStub.callsFake((...params) => {
+    clock = sinon.useFakeTimers({ now: 1665843499038, toFake: ['Date'] })
+    errLogStub = sinon.stub(console, 'error').callsFake((...params) => {
       errLog = utils.format(...params)
     })
   })
@@ -67,7 +67,7 @@ describe('grc.client.base.js tests', () => {
     wrks.forEach(wrk => wrk.stop())
     await grapes.stop()
 
-    mockdate.reset()
+    clock.restore()
     errLogStub.restore()
   })
 
