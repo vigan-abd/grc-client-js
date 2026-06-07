@@ -1,4 +1,4 @@
-# thc-grc-client-js
+# grc-client-js
 
 This package provides base classes for grenache client on node js through different transport layers.
 Currently it supports the following transport layers:
@@ -8,7 +8,7 @@ Currently it supports the following transport layers:
 ## How to use
 
 ```js
-const { GrcHttpClient } = require('thc-grc-client')
+const { GrcHttpClient } = require('@vigan-abd/grc-client')
 const client = new GrcHttpClient({
   grape: 'http://127.0.0.1:30001'
 })

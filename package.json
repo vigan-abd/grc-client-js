@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vigan-abd/thc-grc-client-js.git"
+    "url": "git+https://github.com/vigan-abd/grc-client-js.git"
   },
   "keywords": [
     "grc",
@@ -22,9 +22,9 @@
   "author": "vigan.abd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vigan-abd/thc-grc-client-js/issues"
+    "url": "https://github.com/vigan-abd/grc-client-js/issues"
   },
-  "homepage": "https://github.com/vigan-abd/thc-grc-client-js#readme",
+  "homepage": "https://github.com/vigan-abd/grc-client-js#readme",
   "dependencies": {
     "grenache-nodejs-http": "^1.0.2",
     "grenache-nodejs-link": "^1.0.2",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@bitfinex/bfx-svc-test-helper": "^1.1.0",
-    "@vigan-abd/grc-server": "git+https://github.com/vigan-abd/thc-grc-server-js.git",
+    "@vigan-abd/grc-server": "git+https://github.com/vigan-abd/grc-server-js.git",
     "mocha": "^11.7.6",
     "nyc": "^18.0.0",
     "sinon": "^22.0.0",
