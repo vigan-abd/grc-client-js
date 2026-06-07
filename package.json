@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@bitfinex/bfx-svc-test-helper": "^1.1.0",
-    "@vigan-abd/grc-server": "^1.0.0",
+    "@vigan-abd/grc-server": "^1.0.1",
     "mocha": "^11.7.6",
     "nyc": "^18.0.0",
     "sinon": "^22.0.0",
