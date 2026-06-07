@@ -7,7 +7,7 @@ const createGrapes = require('@bitfinex/bfx-svc-test-helper/grapes')
 const sinon = require('sinon')
 const utils = require('util')
 const { GrcHttpWrk } = require('@vigan-abd/grc-server')
-const { GrcHttpClient } = require('../')
+const { GrcClientBase, GrcHttpClient } = require('../')
 
 class SampleWrk extends GrcHttpWrk {
   constructor (opts) {
@@ -105,5 +105,28 @@ describe('grc.client.base.js tests', () => {
         return true
       }
     )
+  })
+
+  it('should handle errors on requestAll', async () => {
+    await assert.rejects(
+      () => client.requestAll(svcName, 'calc', []),
+      (err) => {
+        assert.ok(err instanceof Error)
+        assert.strictEqual(err.message, 'SIMULATE')
+        return true
+      }
+    )
+  })
+
+  it('should apply default timeout when omitted', () => {
+    const def = new GrcClientBase({ grape })
+
+    assert.strictEqual(def._timeout, 15000)
+  })
+
+  it('should apply custom timeout when provided', () => {
+    const custom = new GrcHttpClient({ grape, timeout: 5000 })
+
+    assert.strictEqual(custom._timeout, 5000)
   })
 })
